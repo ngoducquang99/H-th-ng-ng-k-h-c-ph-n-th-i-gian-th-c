@@ -1,0 +1,17 @@
+syntax = "proto3";
+package registration;
+
+service CourseCapacityService {
+  rpc GetCapacity (CapacityRequest) returns (CapacityResponse);
+}
+
+message CapacityRequest {
+  string courseId = 1;
+}
+
+message CapacityResponse {
+  string courseId = 1;
+  int32 capacity = 2;
+  int32 registered = 3;
+  int32 available = 4;
+}

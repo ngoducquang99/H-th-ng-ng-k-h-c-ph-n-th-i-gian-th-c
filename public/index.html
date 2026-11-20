@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Đăng ký học phần | Hệ thống đào tạo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">DT</div><div><b>ĐẠI HỌC TRỰC TUYẾN</b><span>HỆ THỐNG ĐÀO TẠO</span></div></div>
+    <nav>
+      <a href="#" data-page="home"><span>⌂</span>Trang chủ</a>
+      <a class="active" href="#" data-page="registration"><span>▦</span>Đăng ký học phần</a>
+      <a href="#" data-page="schedule"><span>▣</span>Thời khóa biểu</a>
+      <a href="#" data-page="results"><span>◇</span>Kết quả học tập</a>
+      <a href="#" data-page="tuition"><span>◷</span>Học phí</a>
+    </nav>
+    <div class="semester"><small>HỌC KỲ HIỆN TẠI</small><strong>Học kỳ 1 · 2026–2027</strong><span>12/08/2026 – 18/12/2026</span></div>
+  </aside>
+
+  <main>
+    <header>
+      <div class="breadcrumb">Sinh viên <b>/</b> <strong>Đăng ký học phần</strong></div>
+      <div class="profile"><div class="live"><i></i> Trực tuyến</div><div class="avatar">NT</div><div><strong>Nguyễn Thảo</strong><span>SV2024001</span></div></div>
+    </header>
+
+    <section class="content">
+      <div class="title-row"><div><p class="eyebrow">KỲ ĐĂNG KÝ · HỌC KỲ 1/2026</p><h1>Đăng ký học phần</h1></div><div class="deadline"><span>Thời gian còn lại</span><strong id="countdown">02 : 18 : 45</strong></div></div>
+
+      <div class="stats">
+        <div class="stat"><span class="icon violet">▦</span><div><small>Học phần đã đăng ký</small><b id="creditCount">0 học phần</b></div></div>
+        <div class="stat"><span class="icon blue">◫</span><div><small>Tổng số tín chỉ</small><b id="creditTotal">0 tín chỉ</b></div></div>
+        <div class="stat"><span class="icon green">✓</span><div><small>Trạng thái</small><b class="success">Đủ điều kiện</b></div></div>
+      </div>
+
+      <div class="toolbar">
+        <label class="search">⌕<input id="search" placeholder="Tìm theo mã hoặc tên học phần..."></label>
+        <select id="filter"><option value="all">Tất cả học phần</option><option value="available">Còn chỗ</option><option value="registered">Đã đăng ký</option></select>
+      </div>
+
+      <div class="layout">
+        <section class="courses-card">
+          <div class="card-head"><h2>Danh sách học phần</h2><span id="courseCount">0 học phần</span></div>
+          <div class="table-wrap"><table><thead><tr><th>Mã HP</th><th>Tên học phần</th><th>TC</th><th>Lịch học</th><th>Sĩ số</th><th></th></tr></thead><tbody id="courses"></tbody></table></div>
+        </section>
+
+        <aside class="selected-card"><div class="card-head"><h2>Học phần đã chọn</h2><span id="selectedCount">0</span></div><div id="selectedList" class="selected-list"></div><div class="selected-footer"><div><span>Tổng tín chỉ</span><b id="footerCredits">0 TC</b></div><button id="confirmBtn" disabled>Xác nhận đăng ký</button></div></aside>
+      </div>
+    </section>
+  </main>
+  <div id="toast" class="toast"></div>
+  <script src="app.complete.js"></script>
+</body>
+</html>
